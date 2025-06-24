@@ -460,11 +460,12 @@
     const telefone = document.getElementById('telefone').value;
 
     // Integração real com Google Sheets via Apps Script
-    fetch('https://script.google.com/macros/s/AKfycbwcUMbFz8-oXM99GX9CAWeWSoXaUAiKAhKijQUAH4zFsAulZk-xQwQ6k8dzOGrSznIC/exec', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nome, email, telefone })
-    })
+   fetch('hook.us2.make.com/6ew0j6bdgoo5xmqgt6jszpspewvi5vg7', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ nome, email, telefone })
+})
+...)
     .then(res => res.json())
     .then(data => {
         const button = document.querySelector('.submit-button');
