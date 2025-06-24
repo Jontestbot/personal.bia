@@ -460,26 +460,25 @@
     const email = document.getElementById('email').value;
     const telefone = document.getElementById('telefone').value;
 
-  fetch('https://script.google.com/macros/s/AKfycbyQPcO_umYjxGQM1syWbZUa6TjvLJSa3lPKeWLSkLKG79WL8F0mZFxAbhEGBIuNo2TW/exec', {
-        method: 'POST',
-        body: JSON.stringify({ nome, email, telefone }),
-        headers: { 'Content-Type': 'application/json' }
-    })
-    .then(res => res.json())
-    .then(data => {
-        const button = document.querySelector('.submit-button');
-        const originalText = button.textContent;
-        button.textContent = 'Enviado com Sucesso!';
-        button.style.background = 'linear-gradient(135deg, #10b981, #059669)';
-        setTimeout(() => {
-            button.textContent = originalText;
-            button.style.background = 'linear-gradient(135deg, #8b5cf6, #6366f1)';
-            document.getElementById('consultoria-form').reset();
-        }, 3000);
-    })
-    .catch(error => {
-        alert('Erro ao enviar: ' + error.message);
-    });
+ fetch('https://script.google.com/macros/s/AKfycbyQPcO_umYjxGQM1syWbZUa6TjvLJSa3lPKeWLSkLKG79WL8F0mZFxAbhEGBIuNo2TW/exec', {
+    method: 'POST',
+    body: JSON.stringify({ nome, email, telefone }),
+    headers: { 'Content-Type': 'application/json' }
+})
+.then(res => res.json())
+.then(data => {
+    const button = document.querySelector('.submit-button');
+    const originalText = button.textContent;
+    button.textContent = 'Enviado com Sucesso!';
+    button.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+    setTimeout(() => {
+        button.textContent = originalText;
+        button.style.background = 'linear-gradient(135deg, #8b5cf6, #6366f1)';
+        document.getElementById('consultoria-form').reset();
+    }, 3000);
+})
+.catch(error => {
+    alert('Erro ao enviar: ' + error.message);
 });
 
 
