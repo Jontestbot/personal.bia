@@ -452,36 +452,26 @@
             observer.observe(el);
         });
 
-       document.getElementById('consultoria-form').addEventListener('submit', function(e) {
-    e.preventDefault();
+      <form id="consultoria-form" action="https://hook.us2.make.com/6ew0j6bdgoo5xmqgt6jszpspewvi5vg7" method="POST">
+    <div class="form-group">
+        <label for="nome">Nome Completo</label>
+        <input type="text" id="nome" name="nome" required placeholder="Digite seu nome completo">
+    </div>
     
-    const nome = document.getElementById('nome').value;
-    const email = document.getElementById('email').value;
-    const telefone = document.getElementById('telefone').value;
+    <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" required placeholder="seu@email.com">
+    </div>
+    
+    <div class="form-group">
+        <label for="telefone">Telefone/WhatsApp</label>
+        <input type="tel" id="telefone" name="telefone" required placeholder="(11) 99999-9999">
+    </div>
+    
+    <button type="submit" class="submit-button">Quero Minha Consultoria Gratuita</button>
+</form>
 
-    // Integração real com Google Sheets via Apps Script
-    fetch('https://script.google.com/macros/s/AKfycbwRJLLmdQLk1_cyGh-jaR1OU8MUZ2dpavZuQGZUxXb1_kdZeE1eD4jS5zokgnM0-AED/exec', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nome, email, telefone })
-    })
-    .then(res => res.json())
-    .then(data => {
-        const button = document.querySelector('.submit-button');
-        const originalText = button.textContent;
-        button.textContent = 'Enviado com Sucesso!';
-        button.style.background = 'linear-gradient(135deg, #10b981, #059669)';
-        this.reset();
-        setTimeout(() => {
-            button.textContent = originalText;
-            button.style.background = 'linear-gradient(135deg, #8b5cf6, #6366f1)';
-        }, 3000);
-    })
-    .catch(err => {
-        alert('Erro ao enviar: ' + err.message);
-        console.error('Erro:', err);
-    });
-});
+<script>
 
         // Formatação do telefone
         document.getElementById('telefone').addEventListener('input', function(e) {
