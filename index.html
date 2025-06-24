@@ -454,28 +454,34 @@
 
         // Simulação de envio do formulário (substitua pela integração real com Google Sheets)
         document.getElementById('consultoria-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const nome = document.getElementById('nome').value;
-            const email = document.getElementById('email').value;
-            const telefone = document.getElementById('telefone').value;
-            
-            // Aqui você deve integrar com o Google Sheets
-            // Por exemplo, usando Google Apps Script ou uma API
-            console.log('Dados do formulário:', { nome, email, telefone });
-            
-            // Feedback visual temporário
-            const button = document.querySelector('.submit-button');
-            const originalText = button.textContent;
-            button.textContent = 'Enviado com Sucesso!';
-            button.style.background = 'linear-gradient(135deg, #10b981, #059669)';
-            
-            setTimeout(() => {
-                button.textContent = originalText;
-                button.style.background = 'linear-gradient(135deg, #8b5cf6, #6366f1)';
-                this.reset();
-            }, 3000);
-        });
+    e.preventDefault();
+
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+    const telefone = document.getElementById('telefone').value;
+
+    fetch('https://script.google.com/macros/s/https://script.google.com/macros/s/AKfycbwRJLLmdQLk1_cyGh-jaR1OU8MUZ2dpavZuQGZUxXb1_kdZeE1eD4jS5zokgnM0-AED/exec', {
+        method: 'POST',
+        body: JSON.stringify({ nome, email, telefone }),
+        headers: { 'Content-Type': 'application/json' }
+    })
+    .then(res => res.json())
+    .then(data => {
+        const button = document.querySelector('.submit-button');
+        const originalText = button.textContent;
+        button.textContent = 'Enviado com Sucesso!';
+        button.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+        setTimeout(() => {
+            button.textContent = originalText;
+            button.style.background = 'linear-gradient(135deg, #8b5cf6, #6366f1)';
+            document.getElementById('consultoria-form').reset();
+        }, 3000);
+    })
+    .catch(error => {
+        alert('Erro ao enviar: ' + error.message);
+    });
+});
+
 
         // Formatação do telefone
         document.getElementById('telefone').addEventListener('input', function(e) {
