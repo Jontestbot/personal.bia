@@ -367,7 +367,7 @@
                     <a href="#video" class="cta-button">Descobrir Como Funciona</a>
                 </div>
                 <div class="hero-image">
-                    <img src="bianca_personal.jpg" alt="Bianca - Personal Trainer" id="bianca-photo">
+                    <img src="bianca_personal.jpg" alt="Bianca - Personal Trainer" id="bianca_personal">
                 </div>
             </div>
         </div>
@@ -397,7 +397,7 @@
                 <h2>Comece Sua Transformação</h2>
                 <p>Preencha o formulário abaixo e receba uma consultoria personalizada</p>
                 
-                <form id="consultoria-form">
+                <form id="consultoria-form" action=https://hook.us2.make.com/6ew0j6bdgoo5xmqgt6jszpspewvi5vg7a" method="POST">
                     <div class="form-group">
                         <label for="nome">Nome Completo</label>
                         <input type="text" id="nome" name="nome" required placeholder="Digite seu nome completo">
@@ -452,27 +452,6 @@
             observer.observe(el);
         });
 
-      <form id="consultoria-form" action="https://hook.us2.make.com/6ew0j6bdgoo5xmqgt6jszpspewvi5vg7" method="POST">
-    <div class="form-group">
-        <label for="nome">Nome Completo</label>
-        <input type="text" id="nome" name="nome" required placeholder="Digite seu nome completo">
-    </div>
-    
-    <div class="form-group">
-        <label for="email">E-mail</label>
-        <input type="email" id="email" name="email" required placeholder="seu@email.com">
-    </div>
-    
-    <div class="form-group">
-        <label for="telefone">Telefone/WhatsApp</label>
-        <input type="tel" id="telefone" name="telefone" required placeholder="(11) 99999-9999">
-    </div>
-    
-    <button type="submit" class="submit-button">Quero Minha Consultoria Gratuita</button>
-</form>
-
-<script>
-
         // Formatação do telefone
         document.getElementById('telefone').addEventListener('input', function(e) {
             let value = e.target.value.replace(/\D/g, '');
@@ -483,6 +462,28 @@
                 }
                 e.target.value = value;
             }
+        });
+
+        // Feedback visual após envio do formulário
+        document.getElementById('consultoria-form').addEventListener('submit', function(e) {
+            const button = document.querySelector('.submit-button');
+            const originalText = button.textContent;
+            
+            // Feedback visual imediato
+            button.textContent = 'Enviando...';
+            button.disabled = true;
+            
+            // Simula feedback de sucesso (o Make processará o envio real)
+            setTimeout(() => {
+                button.textContent = 'Enviado com Sucesso!';
+                button.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = 'linear-gradient(135deg, #8b5cf6, #6366f1)';
+                    button.disabled = false;
+                }, 3000);
+            }, 1000);
         });
     </script>
 </body>
