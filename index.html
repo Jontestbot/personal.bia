@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultoria Online - Corpo Saudável e Realista</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section - Primeira Dobra */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 50%, #e2e8f0 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(45deg, rgba(139, 92, 246, 0.1), rgba(99, 102, 241, 0.1));
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(45deg, rgba(236, 72, 153, 0.08), rgba(139, 92, 246, 0.08));
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .hero-text .highlight {
+            background: linear-gradient(135deg, #8b5cf6, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            color: #4a5568;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #8b5cf6, #6366f1);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(139, 92, 246, 0.4);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.02);
+        }
+
+        /* Video Section - Segunda Dobra */
+        .video-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            text-align: center;
+        }
+
+        .video-section h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 20px;
+        }
+
+        .video-section p {
+            font-size: 1.2rem;
+            color: #4a5568;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 450px;
+            background: linear-gradient(135deg, #e2e8f0, #cbd5e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4a5568;
+            font-size: 1.2rem;
+            position: relative;
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: rgba(139, 92, 246, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: absolute;
+        }
+
+        .play-button:hover {
+            background: rgba(139, 92, 246, 1);
+            transform: scale(1.1);
+        }
+
+        .play-button::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 20px solid white;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            margin-left: 4px;
+        }
+
+        .secondary-cta {
+            background: linear-gradient(135deg, #ec4899, #8b5cf6);
+            color: white;
+            padding: 16px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(236, 72, 153, 0.3);
+            display: inline-block;
+        }
+
+        .secondary-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(236, 72, 153, 0.4);
+        }
+
+        /* Form Section - Terceira Dobra */
+        .form-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 60px;
+            border-radius: 25px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .form-container h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 20px;
+        }
+
+        .form-container p {
+            font-size: 1.1rem;
+            color: #4a5568;
+            margin-bottom: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #2d3748;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #f8fafc;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #8b5cf6;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+        }
+
+        .submit-button {
+            width: 100%;
+            background: linear-gradient(135deg, #8b5cf6, #6366f1);
+            color: white;
+            padding: 18px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(139, 92, 246, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text p {
+                font-size: 1.1rem;
+            }
+
+            .video-section h2 {
+                font-size: 2.2rem;
+            }
+
+            .form-container {
+                padding: 40px 30px;
+            }
+
+            .form-container h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Scroll Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section - Primeira Dobra -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Conquiste um <span class="highlight">Corpo Saudável</span> e Realista</h1>
+                    <p>Consultoria online personalizada para qualquer pessoa que deseja transformar seu corpo de forma sustentável e alcançar resultados duradouros.</p>
+                    <a href="#video" class="cta-button">Descobrir Como Funciona</a>
+                </div>
+                <div class="hero-image">
+                    <img src="bianca_personal.jpg" alt="Bianca - Personal Trainer" id="bianca-photo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section - Segunda Dobra -->
+    <section class="video-section fade-in" id="video">
+        <div class="container">
+            <h2>Veja Como Funciona a Consultoria</h2>
+            <p>Descubra o método exclusivo que já transformou centenas de vidas</p>
+            
+            <div class="video-container">
+                <div class="video-placeholder">
+                    <div class="play-button"></div>
+                    <span>Clique para inserir seu vídeo do YouTube aqui</span>
+                </div>
+            </div>
+            
+            <a href="#formulario" class="secondary-cta">Contratar Consultoria Online</a>
+        </div>
+    </section>
+
+    <!-- Form Section - Terceira Dobra -->
+    <section class="form-section fade-in" id="formulario">
+        <div class="container">
+            <div class="form-container">
+                <h2>Comece Sua Transformação</h2>
+                <p>Preencha o formulário abaixo e receba uma consultoria personalizada</p>
+                
+                <form id="consultoria-form">
+                    <div class="form-group">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" name="nome" required placeholder="Digite seu nome completo">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefone">Telefone/WhatsApp</label>
+                        <input type="tel" id="telefone" name="telefone" required placeholder="(11) 99999-9999">
+                    </div>
+                    
+                    <button type="submit" class="submit-button">Quero Minha Consultoria Gratuita</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scroll para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animação de fade-in no scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Simulação de envio do formulário (substitua pela integração real com Google Sheets)
+        document.getElementById('consultoria-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const telefone = document.getElementById('telefone').value;
+            
+            // Aqui você deve integrar com o Google Sheets
+            // Por exemplo, usando Google Apps Script ou uma API
+            console.log('Dados do formulário:', { nome, email, telefone });
+            
+            // Feedback visual temporário
+            const button = document.querySelector('.submit-button');
+            const originalText = button.textContent;
+            button.textContent = 'Enviado com Sucesso!';
+            button.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+            
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.background = 'linear-gradient(135deg, #8b5cf6, #6366f1)';
+                this.reset();
+            }, 3000);
+        });
+
+        // Formatação do telefone
+        document.getElementById('telefone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length <= 11) {
+                value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+                if (value.length < 14) {
+                    value = value.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3');
+                }
+                e.target.value = value;
+            }
+        });
+    </script>
+</body>
+</html>
