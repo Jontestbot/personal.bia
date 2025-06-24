@@ -452,7 +452,7 @@
             observer.observe(el);
         });
 
-        document.getElementById('consultoria-form').addEventListener('submit', function(e) {
+       document.getElementById('consultoria-form').addEventListener('submit', function(e) {
     e.preventDefault();
     
     const nome = document.getElementById('nome').value;
@@ -460,12 +460,11 @@
     const telefone = document.getElementById('telefone').value;
 
     // Integração real com Google Sheets via Apps Script
-   fetch('hook.us2.make.com/6ew0j6bdgoo5xmqgt6jszpspewvi5vg7', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ nome, email, telefone })
-})
-
+    fetch('https://script.google.com/macros/s/AKfycbyQPcO_umYjxGQM1syWbZUa6TjvLJSa3lPKeWLSkLKG79WL8F0mZFxAbhEGBIuNo2TW/exec', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nome, email, telefone })
+    })
     .then(res => res.json())
     .then(data => {
         const button = document.querySelector('.submit-button');
@@ -483,6 +482,7 @@
         console.error('Erro:', err);
     });
 });
+
         // Formatação do telefone
         document.getElementById('telefone').addEventListener('input', function(e) {
             let value = e.target.value.replace(/\D/g, '');
