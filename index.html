@@ -286,52 +286,64 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
     </section>
 
-    <!-- FORM SECTION -->
-    <form id="leadForm" class="space-y-4 text-left">
-    <div>
-        <label class="block text-xs font-bold text-gray-500 mb-1 uppercase tracking-wider">Nome completo</label>
-        <input name="nome" required type="text" placeholder="Ex: Maria Oliveira" class="w-full px-5 py-4 rounded-xl bg-light border border-gray-200 focus:border-primary outline-none transition-all">
-    </div>
+   <!-- FORM SECTION -->
+<section id="form-section" class="py-20 bg-gradient-hero text-white min-h-[80vh] flex flex-col justify-center">
+    <div class="max-w-7xl mx-auto px-4 w-full text-center">
+        <h2 class="text-4xl md:text-5xl font-black font-heading mb-12">Dê o primeiro passo agora</h2>
+        
+        <div class="bg-white text-dark p-8 md:p-12 rounded-[40px] shadow-2xl w-full max-w-xl mx-auto">
+            <h3 class="text-2xl font-black font-heading mb-8 text-secondary uppercase tracking-tight">Inicie Seu Diagnóstico Gratuito</h3>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-            <label class="block text-xs font-bold text-gray-500 mb-1 uppercase tracking-wider">E-mail</label>
-            <input name="email" required type="email" placeholder="maria@email.com" class="w-full px-5 py-4 rounded-xl bg-light border border-gray-200 focus:border-primary outline-none">
+            <form id="leadForm" class="space-y-4 text-left">
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-500 mb-1 uppercase tracking-wider">Nome completo</label>
+                    <input name="nome" required type="text" placeholder="Ex: Maria Oliveira" class="w-full px-5 py-4 rounded-xl bg-light border border-gray-200 focus:border-primary outline-none transition-all">
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-500 mb-1 uppercase tracking-wider">E-mail</label>
+                        <input name="email" required type="email" placeholder="maria@email.com" class="w-full px-5 py-4 rounded-xl bg-light border border-gray-200 focus:border-primary outline-none">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-500 mb-1 uppercase tracking-wider">WhatsApp</label>
+                        <input name="whatsapp" required type="tel" placeholder="(00) 00000-0000" class="w-full px-5 py-4 rounded-xl bg-light border border-gray-200 focus:border-primary outline-none">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-500 mb-1 uppercase tracking-wider">Onde você prefere treinar?</label>
+                    <select name="local_treino" class="w-full px-5 py-4 rounded-xl bg-light border border-gray-200 focus:border-primary outline-none cursor-pointer">
+                        <option>Casa (Ideal para economizar tempo)</option>
+                        <option>Academia</option>
+                        <option>Condomínio ou Ar Livre</option>
+                    </select>
+                </div>
+
+                <!-- CAMPOS UTM / GTM -->
+                <input type="hidden" name="utm_source" value="Landingpage">
+                <input type="hidden" name="utm_medium" value="Formulario">
+                <input type="hidden" name="utm_campaign" value="Organico">
+                <input type="hidden" name="utm_term" id="utm_term">
+                <input type="hidden" name="utm_content" id="utm_content">
+
+                <button type="submit" class="w-full bg-primary hover:bg-orange-600 text-white font-black text-xl py-5 rounded-2xl shadow-xl shadow-primary/20 transition-transform active:scale-95 uppercase mt-6">
+                    Quero Minha Vaga na Consultoria
+                </button>
+
+                <div class="flex flex-col items-center gap-2 mt-6 text-[11px] text-gray-400 font-medium text-center">
+                    <div class="flex items-center gap-1 uppercase tracking-tighter">
+                        <i data-lucide="shield-check" class="w-3 h-3"></i> Sessão gratuita + 7 dias de garantia total
+                    </div>
+                    <p>A consultoria Bianca Personal foca em resultados.</p>
+                </div>
+
+            </form>
         </div>
-
-        <div>
-            <label class="block text-xs font-bold text-gray-500 mb-1 uppercase tracking-wider">WhatsApp</label>
-            <input name="whatsapp" required type="tel" placeholder="(00) 00000-0000" class="w-full px-5 py-4 rounded-xl bg-light border border-gray-200 focus:border-primary outline-none">
-        </div>
     </div>
-
-    <div>
-        <label class="block text-xs font-bold text-gray-500 mb-1 uppercase tracking-wider">Onde você prefere treinar?</label>
-        <select name="local_treino" class="w-full px-5 py-4 rounded-xl bg-light border border-gray-200 focus:border-primary outline-none cursor-pointer">
-            <option>Casa (Ideal para economizar tempo)</option>
-            <option>Academia</option>
-            <option>Condomínio ou Ar Livre</option>
-        </select>
-    </div>
-
-    <!-- CAMPOS UTM / GTM -->
-    <input type="hidden" name="utm_source" value="Landingpage">
-    <input type="hidden" name="utm_medium" value="Formulario">
-    <input type="hidden" name="utm_campaign" value="Organico">
-    <input type="hidden" name="utm_term" id="utm_term">
-    <input type="hidden" name="utm_content" id="utm_content">
-
-    <button type="submit" class="w-full bg-primary hover:bg-orange-600 text-white font-black text-xl py-5 rounded-2xl shadow-xl shadow-primary/20 transition-transform active:scale-95 uppercase mt-6">
-        Quero Minha Vaga na Consultoria
-    </button>
-
-    <div class="flex flex-col items-center gap-2 mt-6 text-[11px] text-gray-400 font-medium text-center">
-        <div class="flex items-center gap-1 uppercase tracking-tighter">
-            <i data-lucide="shield-check" class="w-3 h-3"></i> Sessão gratuita + 7 dias de garantia total
-        </div>
-        <p>A consultoria Bianca Personal foca em resultados.</p>
-    </div>
-</form>
+</section>
 
     <!-- FOOTER -->
     <footer class="bg-dark text-white py-12 border-t border-white/5">
@@ -386,6 +398,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </body>
 
 </html>
+
 
 
 
